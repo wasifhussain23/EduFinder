@@ -3,6 +3,7 @@ package com.wasifS3301912.edufinder
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
@@ -87,27 +88,45 @@ fun TopSchoolsList(
                     color = colorResource(id = R.color.evergreen)
                 )
                 .padding(vertical = 6.dp, horizontal = 16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+            verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
                 imageVector = Icons.Default.Person,
                 contentDescription = "Profile Icon",
                 tint = Color.White,
-                modifier = Modifier.size(24.dp).clickable {
-                    context.startActivity(Intent(context, ProfileActivity::class.java))
-                }
+                modifier = Modifier
+                    .size(24.dp)
+                    .clickable {
+                        context.startActivity(Intent(context, ProfileActivity::class.java))
+                    }
             )
+            Spacer(modifier = Modifier.width(12.dp))
+
             Text(
                 text = "Home",
                 style = MaterialTheme.typography.headlineSmall,
                 color = Color.White
             )
+            Spacer(modifier = Modifier.weight(1f))
+            Image(
+                painter = painterResource(id = R.drawable.feedback),
+                contentDescription = "Review",
+                modifier = Modifier
+                    .size(24.dp)
+                    .clickable {
+                        SelectedScreen.screenType = 0
+                        context.startActivity(Intent(context, ContactUsActivity::class.java))
+                    }
+            )
+            Spacer(modifier = Modifier.width(12.dp))
+
             Image(
                 painter = painterResource(id = R.drawable.baseline_live_help_24),
                 contentDescription = "Help Icon",
-                modifier = Modifier.size(24.dp)
+                modifier = Modifier
+                    .size(24.dp)
                     .clickable {
+                        SelectedScreen.screenType = 1
                         context.startActivity(Intent(context, ContactUsActivity::class.java))
                     }
             )
@@ -268,7 +287,7 @@ fun getUniversityDetails(): List<UniversityDetails> {
             universityImage = R.drawable.harvard_university, // Replace with actual drawable resource
             universityAdmissionDate = "31-12-2025",
             type = "University",
-            programsOffered = "Law, Business, Medicine, Engineering, Arts, Sciences",
+            programsOffered = "Business Economics ,Computer Science ,Mathematics",
             faculty = "James Roy - Computer Science",
             facilities = "Library, Laboratories, Sports Complex, Hostels, Dining Services",
             featureList = listOf(
@@ -285,7 +304,7 @@ fun getUniversityDetails(): List<UniversityDetails> {
             universityImage = R.drawable.stanford_university, // Replace with actual drawable resource
             universityAdmissionDate = "03-03-2025",
             type = "University",
-            programsOffered = "Computer Science, Business, Medicine, Engineering, Humanities",
+            programsOffered = "Mechanical Engineering, Computer Science, Civil Engineering, MS, BBA,BE,MBA",
             faculty = "Michael Smith - Artificial Intelligence",
             facilities = "Innovation Hub, Gym, Hostels, Cafeterias, Research Labs",
             featureList = listOf(
@@ -300,7 +319,7 @@ fun getUniversityDetails(): List<UniversityDetails> {
             universityImage = R.drawable.oxford_university, // Replace with actual drawable resource
             universityAdmissionDate = "10-02-2025",
             type = "University",
-            programsOffered = "Medicine, Philosophy, Computer Science, Arts, Law",
+            programsOffered = "MS , M Sc , MIM , BBA",
             faculty = "Laura Watson - Medicine",
             facilities = "Historic Libraries, Sports Centers, Museums, Residential Colleges",
             featureList = listOf(

@@ -17,6 +17,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.LocationOn
 import androidx.compose.material3.Card
@@ -57,6 +59,7 @@ fun UniversityDetails(universityDetails: UniversityDetails) {
 
     Column(
         modifier = Modifier.fillMaxSize()
+            .verticalScroll(rememberScrollState())
     ) {
 
         Row(
@@ -190,6 +193,20 @@ fun UniversityDetails(universityDetails: UniversityDetails) {
             text = universityDetails.universityDescription,
             textAlign = TextAlign.Justify,
             style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+        )
+        Spacer(modifier = Modifier.height(12.dp))
+
+
+        Text(
+            text = "Courses Offered",
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
+            modifier = Modifier.padding(horizontal = 16.dp)
+        )
+        Text(
+            text = universityDetails.programsOffered,
+            style = MaterialTheme.typography.bodyLarge,
             modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
         )
     }

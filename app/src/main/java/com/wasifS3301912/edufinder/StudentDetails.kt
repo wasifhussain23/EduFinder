@@ -18,4 +18,26 @@ object StudentDetails {
         return sharedPref.getBoolean("LOGIN_STATUS", false)
     }
 
+    fun saveStudentEmail(context: Context, value: String) {
+        val sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putString("LOGIN_EMAIL", value).apply()
+    }
+
+    fun getStudentEmail(context: Context): String {
+        val sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        return sharedPref.getString("LOGIN_EMAIL", "")!!
+    }
+
+    fun saveStudentName(context: Context, value: String) {
+        val sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putString("LOGIN_NAME", value).apply()
+    }
+
+    fun getStudentName(context: Context): String {
+        val sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        return sharedPref.getString("LOGIN_NAME", "")!!
+    }
+
 }

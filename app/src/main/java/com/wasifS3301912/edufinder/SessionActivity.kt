@@ -162,6 +162,8 @@ fun SessionActivityScreen() {
                                     if (userData.password == studentPassword) {
                                         Toast.makeText(context, "Login successful", Toast.LENGTH_SHORT).show()
                                         StudentDetails.saveStudentLoginDetails(context,true)
+                                        StudentDetails.saveStudentEmail(context,userData.email)
+                                        StudentDetails.saveStudentName(context,userData.fullName)
                                         context.startActivity(Intent(context, FindUniversitiesActivity::class.java))
                                         context.finish()
                                     } else {

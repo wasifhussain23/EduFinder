@@ -75,14 +75,16 @@ fun ProfileScreen() {
 
         Spacer(modifier = Modifier.height(40.dp))  // Spacer for centering the content
 
+        val fullName = StudentDetails.getStudentName(context)
+        val email = StudentDetails.getStudentEmail(context)
         // Centered content (Name and Email)
         Column(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "Name: John Doe", style = MaterialTheme.typography.bodyLarge)
+            Text(text = "Name: $fullName", style = MaterialTheme.typography.bodyLarge)
             Spacer(modifier = Modifier.height(8.dp))
-            Text(text = "Email: john.doe@example.com", style = MaterialTheme.typography.bodyMedium)
+            Text(text = "Email: $email", style = MaterialTheme.typography.bodyMedium)
         }
 
         Spacer(modifier = Modifier.weight(1f)) // Spacer to push the logout button to the bottom
