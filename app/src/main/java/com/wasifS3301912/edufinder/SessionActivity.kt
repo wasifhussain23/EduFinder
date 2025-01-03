@@ -151,11 +151,10 @@ fun SessionActivityScreen() {
                         Toast.makeText(context,"Enter Password",Toast.LENGTH_SHORT).show()
                     }
                     else -> {
-                        val db = FirebaseDatabase.getInstance()
-                        val sanitizedUid = studentEmail.replace(".", ",")
-                        val ref = db.getReference("Students").child(sanitizedUid)
+                        val firebaseDatabase = FirebaseDatabase.getInstance()
+                        val databaseReference = firebaseDatabase.getReference("Students").child(studentEmail.replace(".", ","))
 
-                        ref.get().addOnCompleteListener { task ->
+                        databaseReference.get().addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 val userData = task.result?.getValue(StudentData::class.java)
                                 if (userData != null) {
@@ -170,13 +169,12 @@ fun SessionActivityScreen() {
                                         Toast.makeText(context, "Invalid Password", Toast.LENGTH_SHORT).show()
                                     }
                                 } else {
-                                    Toast.makeText(context, "No user data found", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "Account Not Found", Toast.LENGTH_SHORT).show()
                                 }
                             } else {
-                                // Data retrieval failed
                                 Toast.makeText(
                                     context,
-                                    "Failed to retrieve user data: ${task.exception?.message}",
+                                    "Exception Message",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
@@ -212,10 +210,10 @@ fun SessionActivityScreen() {
 
             Spacer(
                 modifier = Modifier
-                    .weight(1f) // Width of the line
-                    .height(2.dp) // Adjust height as needed
+                    .weight(1f)
+                    .height(2.dp)
                     .padding(horizontal = 6.dp)
-                    .background(Color.White) // Color of the line
+                    .background(Color.White)
 
             )
 
@@ -231,10 +229,10 @@ fun SessionActivityScreen() {
 
             Spacer(
                 modifier = Modifier
-                    .weight(1f) // Width of the line
-                    .height(2.dp) // Adjust height as needed
+                    .weight(1f)
+                    .height(2.dp)
                     .padding(horizontal = 6.dp)
-                    .background(Color.White) // Color of the line
+                    .background(Color.White)
 
             )
 

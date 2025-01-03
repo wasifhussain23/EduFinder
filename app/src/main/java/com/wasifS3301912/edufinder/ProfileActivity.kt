@@ -45,7 +45,6 @@ fun ProfileScreen() {
     val context = LocalContext.current as Activity
 
     Column(modifier = Modifier.fillMaxSize()) {
-        // Top Row with Back Arrow and "Profile" text
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -55,7 +54,6 @@ fun ProfileScreen() {
                 .padding(vertical = 6.dp, horizontal = 16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Back Arrow Icon
             Image(
                 painter = painterResource(id = R.drawable.baseline_arrow_back_24), // Replace with your back arrow icon resource
                 contentDescription = "Back",
@@ -73,11 +71,10 @@ fun ProfileScreen() {
             )
         }
 
-        Spacer(modifier = Modifier.height(40.dp))  // Spacer for centering the content
+        Spacer(modifier = Modifier.height(40.dp))
 
         val fullName = StudentDetails.getStudentName(context)
         val email = StudentDetails.getStudentEmail(context)
-        // Centered content (Name and Email)
         Column(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally
@@ -87,12 +84,9 @@ fun ProfileScreen() {
             Text(text = "Email: $email", style = MaterialTheme.typography.bodyMedium)
         }
 
-        Spacer(modifier = Modifier.weight(1f)) // Spacer to push the logout button to the bottom
+        Spacer(modifier = Modifier.weight(1f))
 
 
-
-
-        // Logout Button
         Button(
             onClick = {
                 val intent = Intent(context, SessionActivity::class.java)
@@ -106,11 +100,4 @@ fun ProfileScreen() {
             Text(text = "Logout")
         }
     }
-}
-
-@Composable
-fun ProfileScreenNavigation() {
-    // Handle back navigation and logout actions
-    ProfileScreen(
-    )
 }

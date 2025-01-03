@@ -6,9 +6,9 @@ data class UniversityDetails(
     val universityDescription: String = "",
     val universityImage: Int=0,
     val universityAdmissionDate: String = "",
-    val type: String = "",// can be School,or College or University
+    val type: String = "",
     val programsOffered: String = "",
-    val faculty: String = "", //James Roy - ComputerScience
+    val faculty: String = "",
     val facilities: String = "",
     var featureList: List<FeaturesData> = emptyList(),
 )

@@ -119,7 +119,7 @@ fun SplashScrOnBoardingScreenD() {
                     Text(
                         text = "Find",
                         fontWeight = FontWeight.Bold,
-                        color = colorResource(id = R.color.black), // Green color similar to the design
+                        color = colorResource(id = R.color.black),
                         fontSize = 26.sp,
                         style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Bold),
                         modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -130,7 +130,7 @@ fun SplashScrOnBoardingScreenD() {
                     Text(
                         text = "Top Universities",
                         fontWeight = FontWeight.Bold,
-                        color = colorResource(id = R.color.evergreen), // Green color similar to the design
+                        color = colorResource(id = R.color.evergreen),
                         fontSize = 26.sp,
                         style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Bold),
                         modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -141,7 +141,7 @@ fun SplashScrOnBoardingScreenD() {
                     Text(
                         text = "Top Schools",
                         fontWeight = FontWeight.Bold,
-                        color = colorResource(id = R.color.evergreen), // Green color similar to the design
+                        color = colorResource(id = R.color.evergreen),
                         fontSize = 26.sp,
                         style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Bold),
                         modifier = Modifier.align(Alignment.CenterHorizontally)
@@ -152,7 +152,7 @@ fun SplashScrOnBoardingScreenD() {
                     Text(
                         text = "Top Tutors",
                         fontWeight = FontWeight.Bold,
-                        color = colorResource(id = R.color.evergreen), // Green color similar to the design
+                        color = colorResource(id = R.color.evergreen),
                         fontSize = 26.sp,
                         style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Bold),
                         modifier = Modifier.align(Alignment.CenterHorizontally)

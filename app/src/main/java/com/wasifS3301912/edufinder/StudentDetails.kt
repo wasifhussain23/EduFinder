@@ -5,39 +5,38 @@ import android.content.Context
 
 object StudentDetails {
 
-    private const val PREFS_NAME = "EduFinder"
 
     fun saveStudentLoginDetails(context: Context, value: Boolean) {
-        val sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putBoolean("LOGIN_STATUS", value).apply()
+        val sharedLogin = context.getSharedPreferences("EduFinder", Context.MODE_PRIVATE)
+        val sharedEditor = sharedLogin.edit()
+        sharedEditor.putBoolean("FINDER_IN", value).apply()
     }
 
     fun getStudentLoginDetails(context: Context): Boolean {
-        val sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        return sharedPref.getBoolean("LOGIN_STATUS", false)
+        val sharedLogin = context.getSharedPreferences("EduFinder", Context.MODE_PRIVATE)
+        return sharedLogin.getBoolean("FINDER_IN", false)
     }
 
     fun saveStudentEmail(context: Context, value: String) {
-        val sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putString("LOGIN_EMAIL", value).apply()
+        val sharedEmail = context.getSharedPreferences("EduFinder", Context.MODE_PRIVATE)
+        val sharedEditor = sharedEmail.edit()
+        sharedEditor.putString("FINDER_EMAIL", value).apply()
     }
 
     fun getStudentEmail(context: Context): String {
-        val sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        return sharedPref.getString("LOGIN_EMAIL", "")!!
+        val sharedEmail = context.getSharedPreferences("EduFinder", Context.MODE_PRIVATE)
+        return sharedEmail.getString("FINDER_EMAIL", "")!!
     }
 
     fun saveStudentName(context: Context, value: String) {
-        val sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putString("LOGIN_NAME", value).apply()
+        val sharedName = context.getSharedPreferences("EduFinder", Context.MODE_PRIVATE)
+        val sharedEditor = sharedName.edit()
+        sharedEditor.putString("FINDER_NAME", value).apply()
     }
 
     fun getStudentName(context: Context): String {
-        val sharedPref = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        return sharedPref.getString("LOGIN_NAME", "")!!
+        val sharedName = context.getSharedPreferences("EduFinder", Context.MODE_PRIVATE)
+        return sharedName.getString("FINDER_NAME", "")!!
     }
 
 }

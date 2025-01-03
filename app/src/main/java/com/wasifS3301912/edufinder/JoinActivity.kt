@@ -269,28 +269,28 @@ fun JoinActivityScreen() {
                         studentData.area = studentArea
                         studentData.password = studentPassword
 
-                        val db = FirebaseDatabase.getInstance()
-                        val ref = db.getReference("Students")
+                        val firebaseDatabase = FirebaseDatabase.getInstance()
+                        val databaseReference = firebaseDatabase.getReference("Students")
 
-                        ref.child(studentData.email.replace(".", ",")).setValue(studentData)
+                        databaseReference.child(studentData.email.replace(".", ",")).setValue(studentData)
                             .addOnCompleteListener { task ->
                                 if (task.isSuccessful) {
-                                    Toast.makeText(context, "Registration Successful", Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(context, "You Joined Us Successfully", Toast.LENGTH_SHORT).show()
                                     context.startActivity(Intent(context, SessionActivity::class.java))
                                     context.finish()
 
                                 } else {
                                     Toast.makeText(
                                         context,
-                                        "User Registration Failed: ${task.exception?.message}",
+                                        "Failed to join us",
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }
                             }
-                            .addOnFailureListener { exception ->
+                            .addOnFailureListener {
                                 Toast.makeText(
                                     context,
-                                    "User Registration Failed: ${exception.message}",
+                                    "Failed to join us",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
@@ -325,10 +325,10 @@ fun JoinActivityScreen() {
 
             Spacer(
                 modifier = Modifier
-                    .weight(1f) // Width of the line
-                    .height(2.dp) // Adjust height as needed
+                    .weight(1f)
+                    .height(2.dp)
                     .padding(horizontal = 6.dp)
-                    .background(Color.White) // Color of the line
+                    .background(Color.White)
 
             )
 
@@ -344,10 +344,10 @@ fun JoinActivityScreen() {
 
             Spacer(
                 modifier = Modifier
-                    .weight(1f) // Width of the line
-                    .height(2.dp) // Adjust height as needed
+                    .weight(1f)
+                    .height(2.dp)
                     .padding(horizontal = 6.dp)
-                    .background(Color.White) // Color of the line
+                    .background(Color.White)
 
             )
 
